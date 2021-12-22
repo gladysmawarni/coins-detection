@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewreport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Coins Detection
+	</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../static/style.css" />
+</head>
+<body>
+	<div class="container-fluid banner">
+		<div class="row">
+			<div class="col-md-8 offset-md-2 info">
+				<h1 class="text-center">Coins Detection</h1>
+				<form action="/submit" method="post" enctype="multipart/form-data" class="text-center">
+					<input type="file" name="file" id="actual-btn" hidden/>
+					<label for="actual-btn">Choose Picture</label>
+					<input type="submit" value="upload" id="submit-btn" hidden/> 
+					<label for="submit-btn">Submit</label>
+                </form>
+			</div>
+			<div class="output">
+				{% if coins %}
+					<h2 class="text-center">{{coins}}</h2>
+				{% endif %}
+
+				{% if image %}
+    				<img src="{{url_for('static', filename= 'detect/exp/'+ image)}}" height="416px" width="416px">
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>
